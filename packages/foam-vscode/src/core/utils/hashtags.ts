@@ -1,8 +1,8 @@
 import { isSome } from './core';
 export const HASHTAG_REGEX =
-  /(?<=^|\s)#([0-9]*[\p{L}\p{Emoji_Presentation}/_-][\p{L}\p{Emoji_Presentation}\p{N}/_-]*)/gmu;
+  /(?<=^|\s)#([0-9.]*[\p{L}\p{Emoji_Presentation}/_-][#\p{L}\p{Emoji_Presentation}\p{N}/_-]*)/gmu;
 const WORD_REGEX =
-  /(?<=^|\s)([0-9]*[\p{L}\p{Emoji_Presentation}/_-][\p{L}\p{Emoji_Presentation}\p{N}/_-]*)/gmu;
+  /(?<=^|\s)([0-9.]*[\p{L}\p{Emoji_Presentation}/_-][#\p{L}\p{Emoji_Presentation}\p{N}/_-]*)/gmu;
 
 export const extractHashtags = (
   text: string

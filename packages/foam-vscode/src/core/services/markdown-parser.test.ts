@@ -248,7 +248,7 @@ title: - one
     it('can find tags in the text of the note', () => {
       const noteA = createNoteFromMarkdown(`
 # this is a #heading
-#this is some #text that includes #tags we #care-about.
+#this is some #text that includes #tags we #care-about and others like #.NET and #C#.
     `);
       expect(noteA.tags).toEqual([
         { label: 'heading', range: Range.create(1, 12, 1, 20) },
@@ -256,6 +256,8 @@ title: - one
         { label: 'text', range: Range.create(2, 14, 2, 19) },
         { label: 'tags', range: Range.create(2, 34, 2, 39) },
         { label: 'care-about', range: Range.create(2, 43, 2, 54) },
+        { label: '.NET', range: Range.create(2, 71, 2, 76) },
+        { label: 'C#', range: Range.create(2, 81, 2, 84) },
       ]);
     });
 
@@ -290,7 +292,7 @@ this is a \`inlined #codeblock\` `);
 tags: hello, world  this_is_good
 ---
 # this is a heading
-this is some #text that includes #tags we #care-about.
+this is some #text that includes #tags we #care-about and others like #.NET and #C#.
     `);
       expect(noteA.tags.map(t => t.label)).toEqual([
         'hello',
@@ -299,6 +301,8 @@ this is some #text that includes #tags we #care-about.
         'text',
         'tags',
         'care-about',
+        '.NET',
+        'C#',
       ]);
     });
 
@@ -308,7 +312,7 @@ this is some #text that includes #tags we #care-about.
 tags: [hello, world,  this_is_good]
 ---
 # this is a heading
-this is some #text that includes #tags we #care-about.
+this is some #text that includes #tags we #care-about and others like #.NET and #C#.
     `);
       expect(noteA.tags.map(t => t.label)).toEqual([
         'hello',
@@ -317,6 +321,8 @@ this is some #text that includes #tags we #care-about.
         'text',
         'tags',
         'care-about',
+        '.NET',
+        'C#',
       ]);
     });
 
